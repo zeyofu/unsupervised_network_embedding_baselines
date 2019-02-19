@@ -1,0 +1,10 @@
+category: Citation
+code: CS
+name: CiteSeer
+description: Publication–publication citations
+url: http://citeseer.ist.psu.edu/oai.html
+cite: b524
+entity-names: publication
+relationship-names: citation
+long-description:  This is the citation network extracted from the CiteSeer digital library.  Nodes are publications and the directed edges denote citations.  Publications can cite themselves in this dataset, and therefore the network includes loops. The network was extracted by hand by Jérôme Kunegis before the start of the KONECT project, and therefore no extraction code remains. 
+tags:  #loop
