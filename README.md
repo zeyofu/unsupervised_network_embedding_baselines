@@ -33,7 +33,7 @@ This project is based on ```python>=3.6``` and ```pytorch>=0.4```.
 
 
 ## Baselines:
-1. #### GraphSage
+1. ### GraphSage
 ---------------
 
 - Code from ```https://github.com/JieyuZ2/RELEARN```
@@ -56,7 +56,7 @@ python eval.py --type lp --embedding_file ../data/cora/embed/graphsage_vec_lp.tx
 ```
 
 
-2. #### TADW
+2. ### TADW
 ---------------
 
 - Code from ```https://github.com/thunlp/OpenNE```
@@ -75,7 +75,7 @@ python eval.py --type nc --embedding_file ../data/cora/embed/tadw_cora_vec.txt -
 python eval.py --type lp --embedding_file ../data/cora/embed/tadw_cora_vec.txt --dataset ../data/cora/ --eval_file ../data/cora/eval/rel.txt
 ```
 
-3. #### GAT
+3. ### GAT
 
 - Code from ```Xingyu Fu```
 - Contact: ```xingyuf2@illinois.edu```
@@ -96,7 +96,7 @@ python eval.py --type lp --embedding_file ../data/cora/embed/gat_vec_lp.txt --da
 ```
 
 
-4. #### planetoid
+4. ### planetoid
 
 - Code from ```Haonan Wang```. Contact: ```haonanw2@illinois.edu```
 
@@ -110,7 +110,7 @@ cd src/planetoid_edge
 python test_ind.py --rel_train_path ../../data/cora/rel.txt --rel_test_path ../../data/cora/eval/rel.txt --embedding_path ../../data/cora/embed/planetoid_vec_lp.txt
 ```
 
-5. #### CANE
+5. ### CANE
 
 - Code from ```https://github.com/thunlp/CANE.git```
 
@@ -127,7 +127,7 @@ and in ```train.py```, write
 save_embed_file = '../../data/cora/embed/cane_vec_lp.txt'
 ```
 
-6. #### STNE
+6. ### STNE
 
 - Code comes from original authors.
 
