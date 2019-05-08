@@ -35,9 +35,13 @@ class Graph(object):
             the format of each line: v1 n1 n2 n3 ... nk
             :param filename: the filename of input file
         """
-        self.G = nx.read_adjlist(filename, create_using=nx.DiGraph())
-        for i, j in self.G.edges():
-            self.G[i][j]['weight'] = 1.0
+        if filename.endswith('.pkl'):
+            self.G = nx.read_gpickle(filename)  # For partial graph files
+        else:
+            self.G = nx.read_adjlist(filename, create_using=nx.DiGraph())
+            for i, j in self.G.edges():
+                self.G[i][j]['weight'] = 1.0
+
         self.encode_node()
 
     def read_edgelist(self, filename, weighted=False, directed=False):
@@ -86,16 +90,24 @@ class Graph(object):
             if l == '':
                 break
             vec = l.split()
-            self.G.nodes[vec[0]]['label'] = vec[1:]
+            if vec[0] not in self.G.nodes:
+                self.G.nodes[int(vec[0])]['label'] = vec[1:]
+            else:
+                self.G.nodes[vec[0]]['label'] = vec[1:]
         fin.close()
 
     def read_node_features(self, filename):
-        fin = open(filename, 'r')
-        for l in fin.readlines():
-            vec = l.split()
-            self.G.nodes[vec[0]]['feature'] = np.array(
-                [float(x) for x in vec[1:]])
-        fin.close()
+        if filename.endswith('.pkl'):
+            features = pkl.load(open(filename, "rb"))
+            for k in features.keys():
+                self.G.nodes[k]['feature'] = features[k]
+        else:
+            fin = open(filename, 'r')
+            for l in fin.readlines():
+                vec = l.split()
+                self.G.nodes[vec[0]]['feature'] = np.array(
+                    [float(x) for x in vec[1:]])
+            fin.close()
 
     def read_node_status(self, filename):
         fin = open(filename, 'r')

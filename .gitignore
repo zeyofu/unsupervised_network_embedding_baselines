@@ -1,4 +1,9 @@
-data/
+data/acm/
+data/dblp/
+STNE/
+CANE/
+planetoid_edge/
+OpenNE/
 .idea/
 # Byte-compiled / optimized / DLL files
 __pycache__/
