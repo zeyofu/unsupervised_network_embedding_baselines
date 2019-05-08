@@ -1,4 +1,4 @@
-# Graph_Sample
+# Unsupervised Network Embedding Baselines
 
 - This repo contains baseline instructions for unsupervised network embedding methods.
 - Author: Xingyu Fu
